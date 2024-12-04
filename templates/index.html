@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dance Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Feuille de style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        var successSoundUrl = "{{ url_for('static', filename='success.mp3') }}";
+        var startSoundUrl = "{{ url_for('static', filename='start.mp3') }}";
+        var endSoundUrl = "{{ url_for('static', filename='end.mp3') }}";
+    </script>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>🕺 Dance Game 💃</h1>
+        <button id="start-btn">Commencer le jeu</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <header>
+            <h1>🕺 Dance Game 💃</h1>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <img src="{{ url_for('video_feed') }}" alt="Flux vidéo" id="video-feed">
+            </div>
+            <div class="info">
+                <p id="command">Commande : </p>
+                <p id="score">Score : 0</p>
+                <p id="timer">Temps restant : 60s</p>
+                <button id="restart-btn" style="display: none;">Recommencer</button>
+            </div>
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </main>
+
+        <footer>
+            © 2024 Dance Game. Amusez-vous !
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
